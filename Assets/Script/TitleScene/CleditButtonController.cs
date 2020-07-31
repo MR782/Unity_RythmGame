@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class CleditButtonController : MonoBehaviour
 {
+    [Header("フェードイン・アウトのマネージャー")]
     [SerializeField] private FadeManager fadeManager = null;
+
+    /// <summary>
+    /// ボタンを押した際に再生されるSE
+    /// </summary>
     private AudioSource buttonSE;
     private void Start()
     {

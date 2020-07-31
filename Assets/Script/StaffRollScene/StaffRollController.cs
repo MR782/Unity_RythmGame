@@ -12,11 +12,17 @@ public class StaffRollController : MonoBehaviour
     private const float limit_top_PosY = 1250f;
     //スタッフロールのテキスト
     Text staff_roll;
-    //フェード管理クラス
+
+
+    /// <summary>
+    /// フェード管理クラス
+    /// </summary>
     [SerializeField] private FadeManager fadeManager;
     //BGM管理
     private BackGroundMusicManager bgmManager;
-    //SE
+    /// <summary>
+    /// シーン変更時に再生されるSE
+    /// </summary>
     [SerializeField] private AudioSource sceneChangeSE;
     private void Start()
     {

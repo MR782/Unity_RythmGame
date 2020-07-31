@@ -11,13 +11,14 @@ public class DogbiteInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.info = this.gameObject.GetComponent<MusicInfo>();
         this.info.levelList.Add(MusicInfo.Level.Normal, this.NormalLavel);
         this.info.levelList.Add(MusicInfo.Level.Hard, this.HardLavel);
 
         this.info.data.composer_name = "t+pazolite";
         this.info.data.bpm = 195;
 
-        this.info.data.jacket_filename = "";
+        this.info.data.jacket_filename = "Dogbite";
         this.info.data.demoBGM_filename = "";
         this.info.data.music_filename = "";
     }

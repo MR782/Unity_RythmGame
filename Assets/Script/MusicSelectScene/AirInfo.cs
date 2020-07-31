@@ -21,7 +21,7 @@ public class AirInfo : MonoBehaviour
         this.info.data.composer_name = "SHIKI";
         this.info.data.bpm = 178;
 
-        this.info.data.jacket_filename = "";
+        this.info.data.jacket_filename = "AirJacket";
         this.info.data.demoBGM_filename = "";
         this.info.data.music_filename = "";
     }

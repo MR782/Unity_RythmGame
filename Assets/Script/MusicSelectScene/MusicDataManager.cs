@@ -41,7 +41,7 @@ public class MusicDataManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.musicInfo = null;
     }
 
     // Update is called once per frame
@@ -55,7 +55,7 @@ public class MusicDataManager : MonoBehaviour
         this.musicInfo = musicInfo;
     }
 
-    public MusicInfo SendMusicData()
+    public MusicInfo GetMusicData()
     {
         return this.musicInfo;
     }

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class TitleSceneManager : MonoBehaviour
 {
+    [Header("フェードイン・アウトのマネージャー")]
     [SerializeField] private FadeManager fadeManager;
+
+    [Header("BGM管理マネージャー")]
     [SerializeField] private BackGroundMusicManager bgmManager;
 
     private AudioSource scene_cahngeSE;
