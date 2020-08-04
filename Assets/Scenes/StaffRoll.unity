@@ -341,7 +341,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -358,11 +357,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "<size=50>\u30B2\u30FC\u30E0\u30C7\u30B6\u30A4\u30F3</size>\n<size=30>\u30B5\u30A6\u30F3\u30C9\u30B3\u30CD\u30AF\u30C8\u5236\u4F5C\u30C1\u30FC\u30E0</size>\n\u30FB\u68EE\u7530\n\u30FB\u8FBB\n\r\n<size=50>\u30D7\u30ED\u30B0\u30E9\u30E0</size>\n<size=30>\u30B5\u30A6\u30F3\u30C9\u30B3\u30CD\u30AF\u30C8\u5236\u4F5C\u30C1\u30FC\u30E0</size>\n\u30FB\u68EE\u7530\n\u30FB\u8FBB
-    \r\n \r\n<size=50>\u30B5\u30A6\u30F3\u30C9</size>\n\u9B54\u738B\u9B42 \u69D8\n\n<size=50>\u30B0\u30E9\u30D5\u30A3\u30C3\u30AF</size>\n<size=30>\u30B5\u30A6\u30F3\u30C9\u30B3\u30CD\u30AF\u30C8\u5236\u4F5C\u30C1\u30FC\u30E0</size>\n\u30FB\u68EE\u7530\n\u30FBJack\n\u5404\u30A2\u30BB\u30C3\u30C8\u5236\u4F5C\u8005
-    \u69D8\n\n<size=50>\u5BA3\u4F1D</size>\n\u30B5\u30A6\u30F3\u30C9\u30B3\u30CD\u30AF\u30C8\u5236\u4F5C\u30C1\u30FC\u30E0\nTatsh
+  m_Text: "<size=50>\u30B2\u30FC\u30E0\u30C7\u30B6\u30A4\u30F3</size>\n<size=30>GrimmBeats\u5236\u4F5C\u30C1\u30FC\u30E0</size>\n\u30FB\u68EE\u7530\n\u30FB\u8FBB\n\r\n<size=50>\u30D7\u30ED\u30B0\u30E9\u30E0</size>\n<size=30>GrimmBeats\u5236\u4F5C\u30C1\u30FC\u30E0</size>\n\u30FB\u68EE\u7530\n\u30FB\u8FBB
+    \r\n \r\n<size=50>\u30B5\u30A6\u30F3\u30C9</size>\n\u9B54\u738B\u9B42 \u69D8\n\n<size=50>\u30B0\u30E9\u30D5\u30A3\u30C3\u30AF</size>\n<size=30>GrimmBeats\u5236\u4F5C\u30C1\u30FC\u30E0</size>\n\u30FB\u68EE\u7530\n\u30FBJack\n\n<size=50>\u5BA3\u4F1D</size>\n\u30B5\u30A6\u30F3\u30C9\u30B3\u30CD\u30AF\u30C8\u5236\u4F5C\u30C1\u30FC\u30E0\nTatsh
     \u69D8\n\n<size=50>\u30C7\u30D0\u30C3\u30B0</size>\n\u30B5\u30A6\u30F3\u30C9\u30B3\u30CD\u30AF\u30C8\u5236\u4F5C\u30C1\u30FC\u30E0\n\u30FB\u68EE\u7530\n\u30FB\u8FBB\n\n<size=50>\u697D\u66F2\u63D0\u4F9B</size>\n\rTatsh
-    \u69D8\nSHIKI \u69D8\nJohn \u69D8\nt+pazolite \u69D8\nFELINE GROOVE \u69D8\n\n\n\n\n\n\n<size=60>\u30B5\u30A6\u30F3\u30C9\u30B3\u30CD\u30AF\u30C8</size>\n<size=40>\u5236\u4F5C
+    \u69D8\nSHIKI \u69D8\nJohn \u69D8\nt+pazolite \u69D8\n\n\n\n\n\n\n<size=60>\u30B5\u30A6\u30F3\u30C9\u30B3\u30CD\u30AF\u30C8</size>\n<size=40>\u5236\u4F5C
     : 2020-00-00</size>\n\n\nPush Enter"
 --- !u!222 &1098653586
 CanvasRenderer:
@@ -386,6 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeManager: {fileID: 0}
   sceneChangeSE: {fileID: 0}
+  staffrollBGM: {fileID: 8300000, guid: 06edb90ff0436ee4eaaa41bfdad6ecc4, type: 3}
 --- !u!82 &1098653588
 AudioSource:
   m_ObjectHideFlags: 0
@@ -534,7 +533,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

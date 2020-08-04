@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MusicInfo : MonoBehaviour
 {
@@ -24,17 +25,17 @@ public class MusicInfo : MonoBehaviour
         public string composer_name;
         public int bpm;
         /// <summary>
-        /// デモ版BGMのファイルネーム
+        /// デモ版BGM
         /// </summary>
-        public string demoBGM_filename;
+        public AudioClip demoBGM;
         /// <summary>
-        /// //楽曲データのファイルネーム(wav,mp3)
+        /// //楽曲データ(wav,mp3)
         /// </summary>
-        public string music_filename;
+        public AudioClip music;
         /// <summary>
-        /// //ジャケット画像ファイル名
+        /// //ジャケット画像
         /// </summary>
-        public string jacket_filename;
+        public Sprite jacket;
     }
 
     public Data data;

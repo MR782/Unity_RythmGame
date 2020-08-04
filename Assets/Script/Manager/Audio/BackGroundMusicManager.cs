@@ -43,14 +43,14 @@ public class BackGroundMusicManager : MonoBehaviour
     {
         this.BGM = this.gameObject.GetComponent<AudioSource>();
     }
-
-    public void SetBGM(string filename)
+    public void SetBGM(AudioClip clip)
     {
-        this.BGM.clip = Resources.Load<AudioClip>("Audio/bgm/" + filename);
+        this.BGM.clip = clip;
     }
 
     public void Play(bool Isloop)
     {
+        if (this.BGM.isPlaying) this.Stop(true);
         this.BGM.loop = Isloop;
         this.BGM.Play();
     }
@@ -59,5 +59,14 @@ public class BackGroundMusicManager : MonoBehaviour
     {
         this.BGM.Stop();
         if (Isdelete) this.BGM.clip = null;
+    }
+
+    /// <summary>
+    /// BGMがセットされているか調べる
+    /// </summary>
+    /// <returns></returns>
+    public bool IsSeting()
+    {
+        return this.BGM.clip == null;
     }
 }

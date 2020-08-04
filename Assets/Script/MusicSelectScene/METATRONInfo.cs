@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class METATRONInfo : MonoBehaviour
 {
     [SerializeField] private int HardLavel = 5;
     [SerializeField] private int ExtremeLavel = 8;
+
+    [SerializeField] AudioClip music_data;
+    [SerializeField] AudioClip musicdemo_data;
+    [SerializeField] Sprite jacket_sprite;
 
     private MusicInfo info = null;
     // Start is called before the first frame update
@@ -18,8 +23,9 @@ public class METATRONInfo : MonoBehaviour
         this.info.data.composer_name = "SHIKI";
         this.info.data.bpm = 190;
 
-        this.info.data.jacket_filename = "METATRONJacket";
-        this.info.data.demoBGM_filename = "";
-        this.info.data.music_filename = "";
+
+        this.info.data.jacket = this.jacket_sprite;
+        this.info.data.demoBGM = this.musicdemo_data;
+        this.info.data.music = this.music_data;
     }
 }

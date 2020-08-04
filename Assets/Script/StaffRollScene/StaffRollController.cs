@@ -24,6 +24,9 @@ public class StaffRollController : MonoBehaviour
     /// シーン変更時に再生されるSE
     /// </summary>
     [SerializeField] private AudioSource sceneChangeSE;
+
+    [Header("スタッフロールのBGM(wav,mp3)")]
+    [SerializeField] private AudioClip staffrollBGM;
     private void Start()
     {
         this.staff_roll = this.gameObject.GetComponent<Text>();
@@ -31,7 +34,7 @@ public class StaffRollController : MonoBehaviour
         this.fadeManager = GameObject.Find("FadeManager").GetComponent<FadeManager>();
         this.bgmManager = GameObject.Find("BGMManager").GetComponent<BackGroundMusicManager>();
 
-        this.bgmManager.SetBGM("staffroll");
+        this.bgmManager.SetBGM(this.staffrollBGM);
         this.bgmManager.Play(true);
     }
 

@@ -20,7 +20,8 @@ public class SelectSceneUIManager : MonoBehaviour
     /// 楽曲データのマネージャー
     /// </summary>
     private MusicDataManager music_dataManager;
-
+    [Header("BGM管理マネージャー")]
+    [SerializeField] private BackGroundMusicManager bgmManager = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +31,8 @@ public class SelectSceneUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       this.composer_label.text = "作曲者 : " + this.music_dataManager.GetMusicData().data.composer_name;
-       this.bpm_label.text = "BPM : " + this.music_dataManager.GetMusicData().data.bpm.ToString();
-       this.jacket.sprite = Resources.Load<Sprite>("Image/Jacket/" + this.music_dataManager.GetMusicData().data.jacket_filename);
+        this.composer_label.text = "作曲者 : " + this.music_dataManager.GetMusicData().data.composer_name;
+        this.bpm_label.text = "BPM : " + this.music_dataManager.GetMusicData().data.bpm.ToString();
+        this.jacket.sprite = this.music_dataManager.GetMusicData().data.jacket;
     }
 }

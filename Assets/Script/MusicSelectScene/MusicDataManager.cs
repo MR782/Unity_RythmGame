@@ -38,17 +38,6 @@ public class MusicDataManager : MonoBehaviour
         //シーンの切り替えで破壊されないようにする
         DontDestroyOnLoad(this.gameObject);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.musicInfo = null;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetMusicInfo(MusicInfo musicInfo)
     {

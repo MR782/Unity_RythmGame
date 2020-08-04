@@ -727,6 +727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeManager: {fileID: 105481764}
   bgmManager: {fileID: 0}
+  titleBGM: {fileID: 8300000, guid: 71fea9fe9922f8f4f883babc3bb31a4c, type: 3}
 --- !u!82 &434231481
 AudioSource:
   m_ObjectHideFlags: 0

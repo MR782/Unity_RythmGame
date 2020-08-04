@@ -10,6 +10,9 @@ public class TitleSceneManager : MonoBehaviour
     [Header("BGM管理マネージャー")]
     [SerializeField] private BackGroundMusicManager bgmManager;
 
+    [Header("TitleBGM(wav,mp3)")]
+    [SerializeField] private AudioClip titleBGM;
+
     private AudioSource scene_cahngeSE;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +21,7 @@ public class TitleSceneManager : MonoBehaviour
         this.bgmManager = GameObject.Find("BGMManager").GetComponent<BackGroundMusicManager>();
         this.scene_cahngeSE = this.gameObject.GetComponent<AudioSource>();
 
-        this.bgmManager.SetBGM("Title");
+        this.bgmManager.SetBGM(this.titleBGM);
         this.bgmManager.Play(true);
     }
 

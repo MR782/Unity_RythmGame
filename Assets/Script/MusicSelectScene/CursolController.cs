@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CursolController : MonoBehaviour
 {
+    #region オブジェクト定義
     [Header("楽曲管理オブジェクト")]
     [SerializeField] private MusicDataManager musicDataManager = null;
 
@@ -13,6 +14,19 @@ public class CursolController : MonoBehaviour
     [Header("楽曲の総データ")]
     [SerializeField] private List<MusicInfo> music_alot_info = new List<MusicInfo>();
 
+    private AudioSource sound_effect;
+
+    [Header("楽曲管理クラス")]
+    [SerializeField] private BackGroundMusicManager bgm_manager;
+    #endregion
+
+    #region SE定義
+    [Header("決定音")]
+    [SerializeField] private AudioClip determinationSE;
+    [Header("カーソルの移動音")]
+    [SerializeField] private AudioClip cursolSE;
+    #endregion
+
     const int side_collumNum = 3;//3つで1区切り
 
     /// <summary>
@@ -20,35 +34,52 @@ public class CursolController : MonoBehaviour
     /// </summary>
     [SerializeField]private int select_musicNum;
 
-    // Start is called before the first frame update
     void Start()
     {
+        //定義
+        this.sound_effect = this.gameObject.GetComponent<AudioSource>();
         this.musicDataManager = GameObject.Find("MusicDataManager").GetComponent<MusicDataManager>();
-        for(int i = 0; i < this.music_field.transform.childCount; i++)
+        this.bgm_manager = GameObject.Find("BGMManager").GetComponent<BackGroundMusicManager>();
+        
+        //楽曲データ
+        for (int i = 0; i < this.music_field.transform.childCount; i++)
         {
             this.music_alot_info.Add(this.music_field.transform.GetChild(i).GetComponent<MusicInfo>());
         }
-        this.select_musicNum = 1;
-        this.set(0);
+        //選択中の楽曲番号
+        this.select_musicNum = 0;
+        this.set(this.select_musicNum);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (this.bgm_manager.IsSeting())
+        {
+            this.bgm_manager.SetBGM(this.music_alot_info[this.select_musicNum].data.demoBGM);
+            this.bgm_manager.Play(true);
+        }
+        //カーソル操作が行われた際に処理を行う
         if (this.ControllCursol())
         {
+            this.setAndplay_SE(this.cursolSE);
             this.set(this.select_musicNum);
+            //デモBGM再生
+            this.bgm_manager.SetBGM(this.music_alot_info[this.select_musicNum].data.demoBGM);
+            this.bgm_manager.Play(true);
         }
     }
 
     //選択中の楽曲情報をマネージャーにセットする
-    private void set(int index)
+    public void set(int index)
     {
         this.musicDataManager.SetMusicInfo(this.music_alot_info[index]);
+        
     }
 
     private bool ControllCursol()
     {
+        #region カーソル移動プログラム
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             this.select_musicNum = (this.select_musicNum + side_collumNum) % music_alot_info.Count;
@@ -59,19 +90,24 @@ public class CursolController : MonoBehaviour
             this.select_musicNum = (this.select_musicNum + (music_alot_info.Count - side_collumNum)) % music_alot_info.Count;
             return true;
         }
-        //else if (Input.GetKeyDown(KeyCode.RightArrow))
-        //{
-        //    //(NowSelect+1)%eMenu_Num
-        //    this.select_musicNum = (this.select_musicNum + 1) % music_alot_info.Count;
-        //    return true;
-        //}
-        //else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        //{
-        //    //(NowSelect+(eMenu_Num-1))%eMenu_Num;
-        //    this.select_musicNum = (this.select_musicNum + (music_alot_info.Count - 1)) % music_alot_info.Count;
-        //    return true;
-        //}
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            this.select_musicNum = (this.select_musicNum + 1) % music_alot_info.Count;
+            return true;
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            this.select_musicNum = (this.select_musicNum + (music_alot_info.Count - 1)) % music_alot_info.Count;
+            return true;
+        }
+        #endregion 
+
         return false;
     }
 
+    private void setAndplay_SE(AudioClip clip)
+    {
+        this.sound_effect.clip = clip;
+        this.sound_effect.Play();
+    }
 }
