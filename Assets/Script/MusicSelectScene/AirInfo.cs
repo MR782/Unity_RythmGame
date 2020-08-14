@@ -9,9 +9,9 @@ public class AirInfo : MonoBehaviour
     [SerializeField] private int HardLavel = 6;
     [SerializeField] private int ExtremeLavel = 7;
 
-    [SerializeField] private AudioClip music_data;
-    [SerializeField] private AudioClip musicdemo_data;
-    [SerializeField] private Sprite jacket_sprite;
+    [SerializeField] private AudioClip music_data = null;
+    [SerializeField] private AudioClip musicdemo_data = null;
+    [SerializeField] private Sprite jacket_sprite = null;
 
     private MusicInfo info = null;
     // Start is called before the first frame update

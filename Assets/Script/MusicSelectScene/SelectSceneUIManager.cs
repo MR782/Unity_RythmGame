@@ -19,9 +19,9 @@ public class SelectSceneUIManager : MonoBehaviour
     /// <summary>
     /// 楽曲データのマネージャー
     /// </summary>
-    private MusicDataManager music_dataManager;
-    [Header("BGM管理マネージャー")]
-    [SerializeField] private BackGroundMusicManager bgmManager = null;
+    private MusicDataManager music_dataManager = null;
+
+    [SerializeField] private CursolController cursol = null;
     // Start is called before the first frame update
     void Start()
     {
