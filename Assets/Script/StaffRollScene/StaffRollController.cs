@@ -17,16 +17,16 @@ public class StaffRollController : MonoBehaviour
     /// <summary>
     /// フェード管理クラス
     /// </summary>
-    [SerializeField] private FadeManager fadeManager;
+    [SerializeField] private FadeManager fadeManager = null;
     //BGM管理
     private BackGroundMusicManager bgmManager;
     /// <summary>
     /// シーン変更時に再生されるSE
     /// </summary>
-    [SerializeField] private AudioSource sceneChangeSE;
+    [SerializeField] private AudioSource sceneChangeSE = null;
 
     [Header("スタッフロールのBGM(wav,mp3)")]
-    [SerializeField] private AudioClip staffrollBGM;
+    [SerializeField] private AudioClip staffrollBGM = null;
     private void Start()
     {
         this.staff_roll = this.gameObject.GetComponent<Text>();

@@ -5,13 +5,13 @@ using UnityEngine;
 public class TitleSceneManager : MonoBehaviour
 {
     [Header("フェードイン・アウトのマネージャー")]
-    [SerializeField] private FadeManager fadeManager;
+    [SerializeField] private FadeManager fadeManager = null;
 
     [Header("BGM管理マネージャー")]
-    [SerializeField] private BackGroundMusicManager bgmManager;
+    [SerializeField] private BackGroundMusicManager bgmManager =null;
 
     [Header("TitleBGM(wav,mp3)")]
-    [SerializeField] private AudioClip titleBGM;
+    [SerializeField] private AudioClip titleBGM = null;
 
     private AudioSource scene_cahngeSE;
     // Start is called before the first frame update

@@ -8,9 +8,9 @@ public class METATRONInfo : MonoBehaviour
     [SerializeField] private int HardLavel = 5;
     [SerializeField] private int ExtremeLavel = 8;
 
-    [SerializeField] AudioClip music_data;
-    [SerializeField] AudioClip musicdemo_data;
-    [SerializeField] Sprite jacket_sprite;
+    [SerializeField] AudioClip music_data = null;
+    [SerializeField] AudioClip musicdemo_data = null;
+    [SerializeField] Sprite jacket_sprite = null;
 
     private MusicInfo info = null;
     // Start is called before the first frame update

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CursolController : MonoBehaviour
 {
@@ -17,14 +18,19 @@ public class CursolController : MonoBehaviour
     private AudioSource sound_effect;
 
     [Header("楽曲管理クラス")]
-    [SerializeField] private BackGroundMusicManager bgm_manager;
+    [SerializeField] private BackGroundMusicManager bgm_manager = null;
     #endregion
 
     #region SE定義
     [Header("決定音")]
-    [SerializeField] private AudioClip determinationSE;
+    [SerializeField] private AudioClip determinationSE = null;
     [Header("カーソルの移動音")]
-    [SerializeField] private AudioClip cursolSE;
+    [SerializeField] private AudioClip cursolSE = null;
+    #endregion
+
+    #region RectTransform
+    RectTransform cursolRect = null;
+    RectTransform jacketRect = null;
     #endregion
 
     const int side_collumNum = 3;//3つで1区切り
@@ -32,7 +38,7 @@ public class CursolController : MonoBehaviour
     /// <summary>
     /// 選択中の楽曲番号(Index)
     /// </summary>
-    [SerializeField]private int select_musicNum;
+    [SerializeField] private int select_musicNum;
 
     void Start()
     {
@@ -40,20 +46,27 @@ public class CursolController : MonoBehaviour
         this.sound_effect = this.gameObject.GetComponent<AudioSource>();
         this.musicDataManager = GameObject.Find("MusicDataManager").GetComponent<MusicDataManager>();
         this.bgm_manager = GameObject.Find("BGMManager").GetComponent<BackGroundMusicManager>();
-        
-        //楽曲データ
+
+        //楽曲データ取得
         for (int i = 0; i < this.music_field.transform.childCount; i++)
         {
             this.music_alot_info.Add(this.music_field.transform.GetChild(i).GetComponent<MusicInfo>());
         }
         //選択中の楽曲番号
         this.select_musicNum = 0;
+        this.cursolRect = this.gameObject.GetComponent<RectTransform>();
+        this.jacketRect = this.music_alot_info[this.select_musicNum].gameObject.GetComponent<RectTransform>();
+        //ジャケット画像、DEMOBGM、カーソルのセット
         this.set(this.select_musicNum);
+        this.CursolSet(select_musicNum);
+
+        RectTransform jacketRect = this.music_alot_info[this.select_musicNum].gameObject.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        this.CursolSet(this.select_musicNum);
         if (this.bgm_manager.IsSeting())
         {
             this.bgm_manager.SetBGM(this.music_alot_info[this.select_musicNum].data.demoBGM);
@@ -74,7 +87,6 @@ public class CursolController : MonoBehaviour
     public void set(int index)
     {
         this.musicDataManager.SetMusicInfo(this.music_alot_info[index]);
-        
     }
 
     private bool ControllCursol()
@@ -109,5 +121,20 @@ public class CursolController : MonoBehaviour
     {
         this.sound_effect.clip = clip;
         this.sound_effect.Play();
+    }
+
+    public void CursolSet(int selectNum)
+    {
+        RectTransform jacketrect = this.music_alot_info[selectNum].gameObject.GetComponent<RectTransform>();
+        if (jacketrect == this.jacketRect) return;
+
+        //カーソルの座標セット
+        this.cursolRect.anchoredPosition = jacketrect.anchoredPosition;
+        //カーソルサイズセット
+        Vector2 size = new Vector2(jacketrect.sizeDelta.x, jacketrect.sizeDelta.y);
+        this.cursolRect.sizeDelta = size;
+
+        this.jacketRect = jacketrect;
+
     }
 }
